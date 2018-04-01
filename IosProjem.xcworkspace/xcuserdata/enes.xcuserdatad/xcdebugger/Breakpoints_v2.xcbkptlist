@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IosProjem/Controller/IlanPaylasViewController.swift"
+            timestampString = "543871694.467533"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "IlanPaylasViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of IosProjem.IlanPaylasViewController.datepicket : __ObjC.UIDatePicker"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770234.070605"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.datepicket.getter : __ObjC.UIDatePicker"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770234.076279"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; IosProjem.IlanPaylasViewController"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770234.0806791"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1841">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;IosProjem.IlanPaylasViewController&gt;"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770234.0842431"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1718">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IosProjem/Controller/IlanPaylasViewController.swift"
+            timestampString = "543871694.468375"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "IlanPaylasViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "variable initialization expression of IosProjem.IlanPaylasViewController.datepicket : __ObjC.UIDatePicker"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770276.624125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.datepicket.getter : __ObjC.UIDatePicker"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770276.627045"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; IosProjem.IlanPaylasViewController"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770276.629227"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1841">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;IosProjem.IlanPaylasViewController&gt;"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770276.631225"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1718">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IosProjem/Controller/IlanPaylasViewController.swift"
+            timestampString = "543871694.468721"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "IlanPaylasViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.kontrol.getter : Swift.Bool"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770277.865431"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.kontrol.setter : Swift.Bool"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770277.868027"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "109">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; IosProjem.IlanPaylasViewController"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770277.870816"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1782">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IosProjem.IlanPaylasViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;IosProjem.IlanPaylasViewController&gt;"
+                  moduleName = "IosProjem"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/enes/Desktop/IosProjem/IosProjem/Controller/IlanPaylasViewController.swift"
+                  timestampString = "543770277.873106"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "1659">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
