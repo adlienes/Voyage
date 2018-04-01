@@ -16,9 +16,6 @@
 		BCFBF010205EE72500211CC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCFBF00F205EE72500211CC6 /* GoogleService-Info.plist */; };
 		BCFBF012205EE98900211CC6 /* GirisYapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBF011205EE98900211CC6 /* GirisYapViewController.swift */; };
 		BCFBF014205EE99700211CC6 /* KayitOlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFBF013205EE99700211CC6 /* KayitOlViewController.swift */; };
-		BCFC4B46206811D100291884 /* voyage.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC4B42206811D000291884 /* voyage.png */; };
-		BCFC4B47206811D100291884 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC4B43206811D000291884 /* search.png */; };
-		BCFC4B48206811D100291884 /* tarih.png in Resources */ = {isa = PBXBuildFile; fileRef = BCFC4B44206811D100291884 /* tarih.png */; };
 		BCFC4B49206811D100291884 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCFC4B45206811D100291884 /* back.jpg */; };
 		BCFC4B512068159F00291884 /* GonderiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFC4B502068159F00291884 /* GonderiModel.swift */; };
 		C4ADC6C7D30D5C0B78652AFC /* Pods_IosProjem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F457379B00D110A71955652 /* Pods_IosProjem.framework */; };
@@ -38,9 +35,6 @@
 		BCFBF00F205EE72500211CC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCFBF011205EE98900211CC6 /* GirisYapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirisYapViewController.swift; sourceTree = "<group>"; };
 		BCFBF013205EE99700211CC6 /* KayitOlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlViewController.swift; sourceTree = "<group>"; };
-		BCFC4B42206811D000291884 /* voyage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voyage.png; path = ../../.Trash/voyage.png; sourceTree = "<group>"; };
-		BCFC4B43206811D000291884 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search.png; path = ../../.Trash/search.png; sourceTree = "<group>"; };
-		BCFC4B44206811D100291884 /* tarih.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tarih.png; path = ../../.Trash/tarih.png; sourceTree = "<group>"; };
 		BCFC4B45206811D100291884 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back.jpg; path = ../../.Trash/back.jpg; sourceTree = "<group>"; };
 		BCFC4B502068159F00291884 /* GonderiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GonderiModel.swift; sourceTree = "<group>"; };
 		E467118B78D0689022795573 /* Pods-IosProjem.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosProjem.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IosProjem/Pods-IosProjem.debug.xcconfig"; sourceTree = "<group>"; };
@@ -73,9 +67,6 @@
 				BCFBEFFC205EE71400211CC6 /* IosProjem */,
 				BCFBEFFB205EE71400211CC6 /* Products */,
 				BCFC4B45206811D100291884 /* back.jpg */,
-				BCFC4B43206811D000291884 /* search.png */,
-				BCFC4B44206811D100291884 /* tarih.png */,
-				BCFC4B42206811D000291884 /* voyage.png */,
 				B13D01F675ADCDC0AD2DDF25 /* Pods */,
 				C62C41672E9C4248695F3403 /* Frameworks */,
 			);
@@ -205,9 +196,6 @@
 				BCFBF010205EE72500211CC6 /* GoogleService-Info.plist in Resources */,
 				BCFC4B49206811D100291884 /* back.jpg in Resources */,
 				BCFBF005205EE71400211CC6 /* Assets.xcassets in Resources */,
-				BCFC4B48206811D100291884 /* tarih.png in Resources */,
-				BCFC4B47206811D100291884 /* search.png in Resources */,
-				BCFC4B46206811D100291884 /* voyage.png in Resources */,
 				BCFBF003205EE71400211CC6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
