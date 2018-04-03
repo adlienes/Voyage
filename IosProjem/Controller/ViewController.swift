@@ -7,17 +7,24 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if Auth.auth().currentUser != nil {
+            let vc = ViewController(nibNameOrNil:, bundleOrNil: nil)
+            self.presentViewController(vc, animated: true, completion: nil)        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated..
+        // Dispose of any resources that can be recreated.
     }
 
 
