@@ -18,8 +18,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         if Auth.auth().currentUser != nil {
-            let vc = ViewController(nibNameOrNil:, bundleOrNil: nil)
-            self.presentViewController(vc, animated: true, completion: nil)        }
+            
+            }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

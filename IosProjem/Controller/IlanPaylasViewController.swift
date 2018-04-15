@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -23,6 +24,13 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
     @IBOutlet var EtUcret: UITextField!
     @IBOutlet var EtBos: UITextField!
     @IBOutlet var EtBilgi: UITextView!
+    
+    
+    @IBAction func BtnCikis(_ sender: UIBarButtonItem) {
+        try! Auth.auth().signOut()
+        self.performSegue(withIdentifier: "goSignout", sender: self)
+        
+    }
     
     var pickOption = ["İstanbul", "Ankara", "İzmir", "Bursa", "Bitlis"]
     var kontrol=false
