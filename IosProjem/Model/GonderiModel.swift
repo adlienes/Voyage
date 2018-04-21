@@ -11,14 +11,14 @@ import Foundation
 
 class GonderiModel {
     
-     var ilanid: String = ""
-     var gonderenid: String = ""
-     var konum: String = ""
-     var varis: String = ""
-     var tarih: String = ""
-     var fiyat: String = ""
-     var koltuksayisi: String = ""
-     var bilgi: String = ""
+     var ilanid = ""
+     var gonderenid = ""
+     var konum = ""
+     var varis = ""
+     var tarih = ""
+     var fiyat = ""
+     var koltuksayisi = ""
+     var bilgi = ""
     
     
     init( ilanid:String,gonderenid:String,konum:String,varis:String,tarih:String,fiyat:String,koltuksayisi:String,bilgi:String) {
@@ -31,8 +31,4 @@ class GonderiModel {
         self.koltuksayisi=koltuksayisi
         self.bilgi=bilgi
     }
-    
-    
-    
-    
 }
