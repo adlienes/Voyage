@@ -9,16 +9,6 @@
 import UIKit
 import FirebaseDatabase
 
-class FruitTableViewCell: UITableViewCell {
-    @IBOutlet var UiResim: UIImageView!
-    @IBOutlet var LbKisiAdi: UILabel!
-    @IBOutlet var LbTarih: UILabel!
-    @IBOutlet var LbAnok: UILabel!
-    @IBOutlet var LbBnok: UILabel!
-    @IBOutlet var LbFiyat: UILabel!
-    @IBOutlet var LbKoltuk: UILabel!
-    
-}
 
 class IlanlarTableViewController: UITableViewController {
     
@@ -26,7 +16,7 @@ class IlanlarTableViewController: UITableViewController {
     var ref:DatabaseReference?
 
     
-    var meyve=["elma","armut","kiwi","ananas","muz"]
+    let meyve=["elma","armut","kiwi","ananas","muz"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +26,7 @@ class IlanlarTableViewController: UITableViewController {
         ref?.child("Gonderiler").observe(.value) { snapshot in
             for child in snapshot.children {
                 print(child)
+                
             }
         }
         
@@ -55,18 +46,23 @@ class IlanlarTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return meyve.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! FruitTableViewCell
-
+       
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre", for: indexPath) as! IlanlarTableViewCell
+        cell.KisiAdi.text=meyve[indexPath.row]
+    
+        
+        //let gecicihucre:IlanlarTableViewCell=tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre") as! IlanlarTableViewCell
+        //gecicihucre.KisiAdi.text=meyve[indexPath.row]
         
         return cell
     }

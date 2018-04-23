@@ -386,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="96" id="Tqw-rW-9mj" customClass="FruitTableViewCell" customModule="IosProjem" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IlanlarHucre" rowHeight="96" id="Tqw-rW-9mj" customClass="IlanlarTableViewCell" customModule="IosProjem" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tqw-rW-9mj" id="Lxb-RR-JYS">
@@ -454,13 +454,13 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="LbAnok" destination="dTi-PO-eEF" id="pvv-Vm-v87"/>
-                                    <outlet property="LbBnok" destination="Ds4-eo-F51" id="BTG-U1-kC6"/>
-                                    <outlet property="LbFiyat" destination="1tu-uI-PNe" id="1zs-5l-c29"/>
-                                    <outlet property="LbKisiAdi" destination="Wjg-NP-3zn" id="mY4-kl-fHU"/>
-                                    <outlet property="LbKoltuk" destination="nze-oQ-jcC" id="cES-YQ-3Qa"/>
-                                    <outlet property="LbTarih" destination="nHZ-8T-95d" id="Ldc-dl-fnp"/>
-                                    <outlet property="UiResim" destination="COz-IB-QAX" id="XIX-H3-rce"/>
+                                    <outlet property="Anoktasi" destination="dTi-PO-eEF" id="JTr-Qh-MRC"/>
+                                    <outlet property="Bnoktasi" destination="Ds4-eo-F51" id="2c4-nv-fLQ"/>
+                                    <outlet property="Fiyat" destination="1tu-uI-PNe" id="MRs-ic-bax"/>
+                                    <outlet property="KisiAdi" destination="Wjg-NP-3zn" id="meO-hK-O1r"/>
+                                    <outlet property="KoltukSayisi" destination="nze-oQ-jcC" id="TE3-IW-pQt"/>
+                                    <outlet property="Tarih" destination="nHZ-8T-95d" id="Afo-Cs-ILc"/>
+                                    <outlet property="resim" destination="COz-IB-QAX" id="Cuv-m3-bmd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
