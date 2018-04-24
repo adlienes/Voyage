@@ -12,7 +12,12 @@ import FirebaseDatabase
 
 class IlanlarTableViewController: UITableViewController {
     
-    var posts = [String] ()
+    var bilgi = [String]()
+    var fiyat = [String]()
+    var koltuksayisi = [String]()
+    var konum = [String]()
+    var tarih = [String]()
+    var varis = [String]()
     var ref:DatabaseReference?
 
     
@@ -23,12 +28,22 @@ class IlanlarTableViewController: UITableViewController {
 
         ref = Database.database().reference()
         
-        ref?.child("Gonderiler").observe(.value) { snapshot in
-            for child in snapshot.children {
-                print(child)
-                
+        ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
+           // print(snapshot.value)
+            if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshots {
+                    
+                    /*
+                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                        let key = snap.key
+                       let post = Post(postKey: key, dictionary: postDict)
+                     self.posts.append(post)
+ 
+                    }*/
+                }
             }
-        }
+           // self.postTableView.reloadData()
+        })
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
