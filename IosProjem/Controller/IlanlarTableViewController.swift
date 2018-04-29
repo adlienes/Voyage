@@ -22,6 +22,8 @@ class IlanlarTableViewController: UITableViewController {
     var varis = [String]()
     var ref:DatabaseReference?
     
+    @IBOutlet var table: UITableView!
+    
     let meyve=["elma","armut","kiwi","ananas","muz"]
     
     override func viewDidLoad() {
@@ -30,13 +32,8 @@ class IlanlarTableViewController: UITableViewController {
         ref = Database.database().reference()
         
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
-           // print(snapshot.value)
-            
-            
-    
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
-            
                     let myChild = snap
                     if let myChildValue = myChild.value as? [String:Any] {
                         self.bilgi.append(myChildValue["bilgi"] as! String)
@@ -57,20 +54,9 @@ class IlanlarTableViewController: UITableViewController {
  
                     }*/
                 }
-                print(self.bilgi)
-                print(self.fiyat)
-                print(self.gonderenid)
-                print(self.ilanid)
-                print(self.koltuksayisi)
-                print(self.konum)
-                print(self.tarih)
-                print(self.varis)
-                print(self.bilgi.count)
-            
-                
             }
            // self.postTableView.reloadData()
-            
+            self.table.reloadData()
             
         })
         // Uncomment the following line to preserve selection between presentations
@@ -94,7 +80,7 @@ class IlanlarTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return meyve.count
+        return bilgi.count
     }
 
     
@@ -102,6 +88,11 @@ class IlanlarTableViewController: UITableViewController {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre", for: indexPath) as! IlanlarTableViewCell
         cell.KisiAdi.text=meyve[indexPath.row]
+        cell.Tarih.text=tarih[indexPath.row]
+        cell.Anoktasi.text=konum[indexPath.row]
+        cell.Bnoktasi.text=varis[indexPath.row]
+        cell.Fiyat.text=fiyat[indexPath.row]
+        cell.KoltukSayisi.text=koltuksayisi[indexPath.row]
     
         
         //let gecicihucre:IlanlarTableViewCell=tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre") as! IlanlarTableViewCell
@@ -110,6 +101,9 @@ class IlanlarTableViewController: UITableViewController {
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
