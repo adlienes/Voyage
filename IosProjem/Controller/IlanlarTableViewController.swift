@@ -14,12 +14,13 @@ class IlanlarTableViewController: UITableViewController {
     
     var bilgi = [String]()
     var fiyat = [String]()
+    var gonderenid = [String]()
+    var ilanid = [String]()
     var koltuksayisi = [String]()
     var konum = [String]()
     var tarih = [String]()
     var varis = [String]()
     var ref:DatabaseReference?
-
     
     let meyve=["elma","armut","kiwi","ananas","muz"]
     
@@ -30,10 +31,25 @@ class IlanlarTableViewController: UITableViewController {
         
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
            // print(snapshot.value)
+            
+            
+    
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
-                    
-                    /*
+            
+                    let myChild = snap
+                    if let myChildValue = myChild.value as? [String:Any] {
+                        self.bilgi.append(myChildValue["bilgi"] as! String)
+                        self.fiyat.append(myChildValue["fiyat"] as! String)
+                        self.gonderenid.append(myChildValue["gonderenid"] as! String)
+                        self.ilanid.append(myChildValue["ilanid"] as! String)
+                        self.koltuksayisi.append(myChildValue["koltuksayisi"] as! String)
+                        self.konum.append(myChildValue["konum"] as! String)
+                        self.tarih.append(myChildValue["tarih"] as! String)
+                        self.varis.append(myChildValue["varis"] as! String)
+                        
+                    }
+                /*
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                        let post = Post(postKey: key, dictionary: postDict)
@@ -41,10 +57,22 @@ class IlanlarTableViewController: UITableViewController {
  
                     }*/
                 }
+                print(self.bilgi)
+                print(self.fiyat)
+                print(self.gonderenid)
+                print(self.ilanid)
+                print(self.koltuksayisi)
+                print(self.konum)
+                print(self.tarih)
+                print(self.varis)
+                print(self.bilgi.count)
+            
+                
             }
            // self.postTableView.reloadData()
+            
+            
         })
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
