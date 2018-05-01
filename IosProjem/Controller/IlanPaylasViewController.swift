@@ -81,7 +81,8 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
     func GonderiPaylas()  {
         
         let key = ref.childByAutoId().key
-        let gonderimodel=["ilanid":key,"gonderenid": "asdad","konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!]
+        let gonderenid = Auth.auth().currentUser?.uid
+        let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!]
         
        /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
         

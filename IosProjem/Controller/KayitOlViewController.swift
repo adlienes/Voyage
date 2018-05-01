@@ -9,14 +9,22 @@
 import UIKit
 import FirebaseCore
 import FirebaseAuth
+import FirebaseDatabase
 
 class KayitOlViewController: UIViewController {
 
+    
+    @IBOutlet var EtKayitAd: UITextField!
+    @IBOutlet var EtKayitSoyad: UITextField!
     @IBOutlet var EtKayitEmail: UITextField!
+    @IBOutlet var EtKayitTel: UITextField!
     @IBOutlet var EtKayitSifre: UITextField!
+    
+    var ref:DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref=Database.database().reference()
         // Do any additional setup after loading the view.
     }
 
@@ -33,8 +41,9 @@ class KayitOlViewController: UIViewController {
         if EtKayitEmail.text != "" && EtKayitSifre.text != "" {
             Auth.auth().createUser(withEmail: EtKayitEmail.text!, password: EtKayitSifre.text!) { (user, error) in
                 ///asdsadasdasd
-                if let u=user {
+                if user != nil {
                     self.performSegue(withIdentifier: "gotoHome", sender: self)
+                    self.KullaniciBilgileriKaydet()
                     
                 }else {
                     let KayitHata=UIAlertController(title: "Hata", message: "Kayıt Yapılırken Hata Oluştu", preferredStyle: UIAlertControllerStyle.alert)
@@ -49,6 +58,14 @@ class KayitOlViewController: UIViewController {
         }
     }
     
+    func KullaniciBilgileriKaydet(){
+        
+        let id = Auth.auth().currentUser?.uid
+        let kulanicimodel=["id":id, "ad": EtKayitAd.text!, "soyad": EtKayitSoyad.text!, "tel": EtKayitTel.text!]
+        
+        ref.child("KullanıcıBilgileri").child(id!).setValue(kulanicimodel)
+        
+    }
     
     /*
     // MARK: - Navigation

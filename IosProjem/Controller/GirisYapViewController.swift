@@ -32,7 +32,7 @@ class GirisYapViewController: UIViewController {
         if EtGirisEmail.text != "" && EtGirisSifre.text != "" {
             Auth.auth().signIn(withEmail: EtGirisEmail.text!, password: EtGirisSifre.text!, completion: { (user, error) in
                 
-                if let u = user {
+                if user != nil  {
                     self.performSegue(withIdentifier: "gotoHome2", sender: self)
                 } else {
                     let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kullanıcı Sistemde Kayıtlı Değiş", preferredStyle: UIAlertControllerStyle.alert)
