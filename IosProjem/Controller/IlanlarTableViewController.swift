@@ -26,6 +26,11 @@ class IlanlarTableViewController: UITableViewController {
     
     let meyve=["elma","armut","kiwi","ananas","muz"]
     
+    var gelenkonum:String?
+    var gelenvaris:String?
+    var gelentarih:String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,15 +41,22 @@ class IlanlarTableViewController: UITableViewController {
                 for snap in snapshots {
                     let myChild = snap
                     if let myChildValue = myChild.value as? [String:Any] {
-                        self.bilgi.append(myChildValue["bilgi"] as! String)
-                        self.fiyat.append(myChildValue["fiyat"] as! String)
-                        self.gonderenid.append(myChildValue["gonderenid"] as! String)
-                        self.ilanid.append(myChildValue["ilanid"] as! String)
-                        self.koltuksayisi.append(myChildValue["koltuksayisi"] as! String)
-                        self.konum.append(myChildValue["konum"] as! String)
-                        self.tarih.append(myChildValue["tarih"] as! String)
-                        self.varis.append(myChildValue["varis"] as! String)
                         
+                        if myChildValue["konum"] as? String==self.gelenkonum && myChildValue["varis"] as? String==self.gelenvaris && myChildValue["tarih"] as? String==self.gelentarih {
+                            self.bilgi.append(myChildValue["bilgi"] as! String)
+                            self.fiyat.append(myChildValue["fiyat"] as! String)
+                            self.gonderenid.append(myChildValue["gonderenid"] as! String)
+                            self.ilanid.append(myChildValue["ilanid"] as! String)
+                            self.koltuksayisi.append(myChildValue["koltuksayisi"] as! String)
+                            self.konum.append(myChildValue["konum"] as! String)
+                            self.tarih.append(myChildValue["tarih"] as! String)
+                            self.varis.append(myChildValue["varis"] as! String)
+                        }else {
+                            let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
+                            GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(GirisHata, animated: true, completion: nil)
+                            self.performSegue(withIdentifier: "goGeri", sender: self)
+                        }
                     }
                 /*
                     if let postDict = snap.value as? Dictionary<String, AnyObject> {
