@@ -116,6 +116,23 @@ class IlanlarTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         table.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "goAyrinti" {
+            
+            let geciciviewcontrller=segue.destination as! IlanAyrintiViewController
+            
+            if let geciciindexpath=self.table.indexPathForSelectedRow {
+                geciciviewcontrller.gelenKonum=konum[geciciindexpath.row]
+                geciciviewcontrller.gelenVaris=varis[geciciindexpath.row]
+                geciciviewcontrller.gelenTarih=tarih[geciciindexpath.row]
+                geciciviewcontrller.gelenFiyat=fiyat[geciciindexpath.row]
+                geciciviewcontrller.gelenKoltuk=koltuksayisi[geciciindexpath.row]
+                geciciviewcontrller.gelenBilgi=bilgi[geciciindexpath.row]
+            }
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

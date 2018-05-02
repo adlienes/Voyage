@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BC0B83332074284C00B4628C /* voyage.png in Resources */ = {isa = PBXBuildFile; fileRef = BC0B83322074284C00B4628C /* voyage.png */; };
+		BC251A552099E69700FEF42F /* IlanAyrintiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC251A542099E69700FEF42F /* IlanAyrintiViewController.swift */; };
+		BC251A582099EAAF00FEF42F /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = BC251A562099EAAE00FEF42F /* point.png */; };
+		BC251A592099EAAF00FEF42F /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = BC251A572099EAAF00FEF42F /* pin.png */; };
 		BC618AF6206709F800D0C760 /* IlanPaylasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC618AF5206709F800D0C760 /* IlanPaylasViewController.swift */; };
 		BC8BEEEB208E0CB1005CCF31 /* IlanlarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8BEEEA208E0CB1005CCF31 /* IlanlarTableViewCell.swift */; };
 		BC8E0AB42098F92A00339291 /* KullaniciModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E0AB32098F92A00339291 /* KullaniciModel.swift */; };
@@ -33,6 +36,9 @@
 		6D5FFB39BC57B6822329DA7C /* Pods-IosProjem.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IosProjem.release.xcconfig"; path = "Pods/Target Support Files/Pods-IosProjem/Pods-IosProjem.release.xcconfig"; sourceTree = "<group>"; };
 		7F457379B00D110A71955652 /* Pods_IosProjem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IosProjem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC0B83322074284C00B4628C /* voyage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = voyage.png; path = ../voyage.png; sourceTree = "<group>"; };
+		BC251A542099E69700FEF42F /* IlanAyrintiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlanAyrintiViewController.swift; sourceTree = "<group>"; };
+		BC251A562099EAAE00FEF42F /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = point.png; path = ../../../Downloads/point.png; sourceTree = "<group>"; };
+		BC251A572099EAAF00FEF42F /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pin.png; path = ../../../Downloads/pin.png; sourceTree = "<group>"; };
 		BC618AF5206709F800D0C760 /* IlanPaylasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlanPaylasViewController.swift; sourceTree = "<group>"; };
 		BC8BEEEA208E0CB1005CCF31 /* IlanlarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlanlarTableViewCell.swift; sourceTree = "<group>"; };
 		BC8E0AB32098F92A00339291 /* KullaniciModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciModel.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 				BCFBF004205EE71400211CC6 /* Assets.xcassets */,
 				BCFBF009205EE71500211CC6 /* Info.plist */,
 				BCFBF00F205EE72500211CC6 /* GoogleService-Info.plist */,
+				BC251A572099EAAF00FEF42F /* pin.png */,
+				BC251A562099EAAE00FEF42F /* point.png */,
 				BCB0FF5820706941002B2D39 /* search.png */,
 				BCB0FF592070694D002B2D39 /* voyage.png */,
 				BCB0FF5A20706950002B2D39 /* tarih.png */,
@@ -150,6 +158,7 @@
 				BCF9D0FB2084096200E9A561 /* IlanlarViewController.swift */,
 				BCF95B0F2087C75D001AEB23 /* IlanlarTableViewController.swift */,
 				BC8BEEEA208E0CB1005CCF31 /* IlanlarTableViewCell.swift */,
+				BC251A542099E69700FEF42F /* IlanAyrintiViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,7 +236,9 @@
 				BC0B83332074284C00B4628C /* voyage.png in Resources */,
 				BCC70FEE20705EB3005D5FB1 /* search.png in Resources */,
 				BCFBF008205EE71400211CC6 /* LaunchScreen.storyboard in Resources */,
+				BC251A592099EAAF00FEF42F /* pin.png in Resources */,
 				BCFBF010205EE72500211CC6 /* GoogleService-Info.plist in Resources */,
+				BC251A582099EAAF00FEF42F /* point.png in Resources */,
 				BCFBF005205EE71400211CC6 /* Assets.xcassets in Resources */,
 				BCB0FF55207066C2002B2D39 /* tarih.png in Resources */,
 				BCB0FF57207068F0002B2D39 /* back.jpg in Resources */,
@@ -303,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF9D0FC2084096200E9A561 /* IlanlarViewController.swift in Sources */,
+				BC251A552099E69700FEF42F /* IlanAyrintiViewController.swift in Sources */,
 				BCFBF000205EE71400211CC6 /* ViewController.swift in Sources */,
 				BCFBEFFE205EE71400211CC6 /* AppDelegate.swift in Sources */,
 				BCF9D0FA2084095100E9A561 /* IlanAraViewController.swift in Sources */,
