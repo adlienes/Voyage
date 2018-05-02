@@ -20,6 +20,10 @@ class IlanlarTableViewController: UITableViewController {
     var konum = [String]()
     var tarih = [String]()
     var varis = [String]()
+    var ad = [String]()
+    var soyad = [String]()
+    var tel = [String]()
+    
     var ref:DatabaseReference?
     
     @IBOutlet var table: UITableView!
@@ -35,6 +39,27 @@ class IlanlarTableViewController: UITableViewController {
         super.viewDidLoad()
 
         ref = Database.database().reference()
+        
+        
+        ref?.child("KullanıcıBilgileri").observeSingleEvent(of: .value, with: { (snapshot2) in
+            if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
+                for snap2 in snapshots2 {
+                    let myChild2 = snap2
+                    if let myChildValue2 = myChild2.value as? [String:Any] {
+                        
+                        self.ad.append(myChildValue2["ad"] as! String)
+                        self.soyad.append(myChildValue2["soyad"] as! String)
+                        self.tel.append(myChildValue2["tel"] as! String)
+                        
+                    }
+                    
+                }
+            }
+            // self.postTableView.reloadData()
+            self.table.reloadData()
+            print(self.ad.count)
+        })
+        
         
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
@@ -71,6 +96,8 @@ class IlanlarTableViewController: UITableViewController {
             self.table.reloadData()
             
         })
+        
+    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -92,7 +119,7 @@ class IlanlarTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return bilgi.count
+        return ilanid.count
     }
 
     
