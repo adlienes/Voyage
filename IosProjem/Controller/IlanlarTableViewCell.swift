@@ -10,6 +10,8 @@ import UIKit
 
 class IlanlarTableViewCell: UITableViewCell {
     
+    @IBOutlet var altView: UIView!
+    @IBOutlet var profilresim: UIImageView!
     @IBOutlet var resim: UIImageView!
     @IBOutlet var KisiAdi: UILabel!
     @IBOutlet var Tarih: UILabel!
@@ -21,7 +23,11 @@ class IlanlarTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        altView.layer.cornerRadius = 10
+        self.resim.layer.cornerRadius = self.resim.frame.size.width / 2;
+        self.resim.clipsToBounds=true
+        self.resim.layer.borderWidth = 0.5;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
