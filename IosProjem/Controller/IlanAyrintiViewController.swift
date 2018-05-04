@@ -36,6 +36,9 @@ class IlanAyrintiViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        LabelAd.text=gelenAd
+        LabelSoyad.text=gelenSoyad
+        LabelTel.text=gelenTel
         LabelTarih.text=gelenTarih
         LabelKonum.text=gelenKonum
         LabelVaris.text=gelenVaris

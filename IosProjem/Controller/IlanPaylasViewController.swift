@@ -26,11 +26,10 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
     @IBOutlet var EtBilgi: UITextView!
     
     
-    @IBAction func BtnCikis(_ sender: UIBarButtonItem) {
-        try! Auth.auth().signOut()
-        self.performSegue(withIdentifier: "goSignout", sender: self)
-        
-    }
+    var ad:String!
+    var soyad:String!
+    var tel:String!
+    
     
     var pickOption = ["Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
                       "Aydın", "Balıkesir", "Bilecik", "Bingöl", "Bitlis", "Bolu", "Burdur", "Bursa", "Çanakkale",
@@ -71,6 +70,7 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         ViewBilgi.layer.borderColor=UIColor.lightGray.cgColor
 
         // Do any additional setup after loading the view.
+        BilgiGetir()
     }
     
     
@@ -82,11 +82,25 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         let key = ref.childByAutoId().key
         let gonderenid = Auth.auth().currentUser?.uid
-        let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!]
+        let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!,"ad": ad!,"soyad": soyad!,"tel": tel!]
         
        /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
         
         ref.child("Gonderiler").child(key).setValue(gonderimodel)
+    }
+    
+    func BilgiGetir(){
+        
+        let gonderenid = Auth.auth().currentUser?.uid
+        ref?.child("KullanıcıBilgileri").child(gonderenid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let add = value?["ad"] as? String ?? ""
+            let soyadd = value?["soyad"] as? String ?? ""
+            let tell = value?["tel"] as? String ?? ""
+            self.ad=add
+            self.soyad=soyadd
+            self.tel=tell
+        })
     }
     
     func createDatePicket(){

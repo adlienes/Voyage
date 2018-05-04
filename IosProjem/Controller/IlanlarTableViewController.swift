@@ -40,27 +40,7 @@ class IlanlarTableViewController: UITableViewController {
 
         ref = Database.database().reference()
         
-        
-        ref?.child("KullanıcıBilgileri").observeSingleEvent(of: .value, with: { (snapshot2) in
-            if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
-                for snap2 in snapshots2 {
-                    let myChild2 = snap2
-                    if let myChildValue2 = myChild2.value as? [String:Any] {
-                        
-                        self.ad.append(myChildValue2["ad"] as! String)
-                        self.soyad.append(myChildValue2["soyad"] as! String)
-                        self.tel.append(myChildValue2["tel"] as! String)
-                        
-                    }
-                    
-                }
-            }
-            // self.postTableView.reloadData()
-            self.table.reloadData()
-            print(self.ad.count)
-        })
-        
-        
+    
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
@@ -76,6 +56,9 @@ class IlanlarTableViewController: UITableViewController {
                             self.konum.append(myChildValue["konum"] as! String)
                             self.tarih.append(myChildValue["tarih"] as! String)
                             self.varis.append(myChildValue["varis"] as! String)
+                            self.ad.append(myChildValue["ad"] as! String)
+                            self.soyad.append(myChildValue["soyad"] as! String)
+                            self.tel.append(myChildValue["tel"] as! String)
                         }else {
                             let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
                             GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
@@ -94,10 +77,8 @@ class IlanlarTableViewController: UITableViewController {
             }
            // self.postTableView.reloadData()
             self.table.reloadData()
-            
         })
         
-    
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -126,7 +107,7 @@ class IlanlarTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
         let cell = tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre", for: indexPath) as! IlanlarTableViewCell
-        cell.KisiAdi.text=meyve[indexPath.row]
+        cell.KisiAdi.text=ad[indexPath.row]
         cell.Tarih.text=tarih[indexPath.row]
         cell.Anoktasi.text=konum[indexPath.row]
         cell.Bnoktasi.text=varis[indexPath.row]
@@ -157,6 +138,9 @@ class IlanlarTableViewController: UITableViewController {
                 geciciviewcontrller.gelenFiyat=fiyat[geciciindexpath.row]
                 geciciviewcontrller.gelenKoltuk=koltuksayisi[geciciindexpath.row]
                 geciciviewcontrller.gelenBilgi=bilgi[geciciindexpath.row]
+                geciciviewcontrller.gelenAd=ad[geciciindexpath.row]
+                geciciviewcontrller.gelenSoyad=soyad[geciciindexpath.row]
+                geciciviewcontrller.gelenTel=tel[geciciindexpath.row]
             }
         }
     }
