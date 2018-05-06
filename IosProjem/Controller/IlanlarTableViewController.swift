@@ -25,7 +25,8 @@ class IlanlarTableViewController: UITableViewController {
     var tel = [String]()
     
     var ref:DatabaseReference?
-    
+
+    @IBOutlet var YukleniyorImlec: UIActivityIndicatorView!
     @IBOutlet var table: UITableView!
     
     let meyve=["elma","armut","kiwi","ananas","muz"]
@@ -47,6 +48,8 @@ class IlanlarTableViewController: UITableViewController {
         ref = Database.database().reference()
         
     
+        YukleniyorImlec.startAnimating()
+        
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
@@ -83,7 +86,9 @@ class IlanlarTableViewController: UITableViewController {
             }
            // self.postTableView.reloadData()
             self.table.reloadData()
+            self.YukleniyorImlec.stopAnimating()
         })
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

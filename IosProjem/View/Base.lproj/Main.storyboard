@@ -202,6 +202,11 @@
                                     <action selector="BtnKaydet:" destination="WdW-fX-tW8" eventType="touchUpInside" id="2lt-uz-Hix"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="NZz-ne-CQz">
+                                <rect key="frame" x="169" y="291" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="cy6-hk-6Vj"/>
@@ -212,6 +217,7 @@
                         <outlet property="ArabaModel" destination="Ugq-T6-bvl" id="4JY-ZW-wfH"/>
                         <outlet property="Soyad" destination="lYq-Hc-SQZ" id="bMy-Oj-6Gf"/>
                         <outlet property="Tel" destination="A6g-0T-OqM" id="DJQ-nd-FkE"/>
+                        <outlet property="YukleniyorImleci" destination="NZz-ne-CQz" id="UiE-AL-OIH"/>
                         <outlet property="profilresim" destination="FfK-qc-KJe" id="vVh-Jq-P21"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="goSignout" id="q4V-0M-e7f"/>
                     </connections>
@@ -472,6 +478,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="center" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="vkr-OE-sTy">
+                            <rect key="frame" x="0.0" y="118" width="375" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="100" reuseIdentifier="IlanlarHucre" rowHeight="90" id="Tqw-rW-9mj" customClass="IlanlarTableViewCell" customModule="IosProjem" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
@@ -614,6 +625,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="YukleniyorImlec" destination="vkr-OE-sTy" id="APQ-qQ-ra6"/>
                         <outlet property="table" destination="gbj-b6-rQq" id="PUT-jn-B9O"/>
                     </connections>
                 </tableViewController>

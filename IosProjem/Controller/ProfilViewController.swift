@@ -18,6 +18,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
     @IBOutlet var Soyad: UITextField!
     @IBOutlet var Tel: UITextField!
     @IBOutlet var ArabaModel: UITextField!
+    @IBOutlet var YukleniyorImleci: UIActivityIndicatorView!
     
     var ref:DatabaseReference?
     var ref2:StorageReference?
@@ -31,8 +32,9 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         
         ref = Database.database().reference()
         ref2=Storage.storage().reference()
+        
         BİlgiGetir()
-        var dataa = Data()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +45,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     func BİlgiGetir()  {
         
+        YukleniyorImleci.startAnimating()
         let gonderenid = Auth.auth().currentUser?.uid
         ref?.child("KullanıcıBilgileri").child(gonderenid!).observeSingleEvent(of: .value, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -53,6 +56,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             self.Ad.text=add
             self.Soyad.text=soyadd
             self.Tel.text=tell
+            self.YukleniyorImleci.stopAnimating()
         })
     }
     
