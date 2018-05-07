@@ -14,6 +14,7 @@
 		BC618AF6206709F800D0C760 /* IlanPaylasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC618AF5206709F800D0C760 /* IlanPaylasViewController.swift */; };
 		BC8BEEEB208E0CB1005CCF31 /* IlanlarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8BEEEA208E0CB1005CCF31 /* IlanlarTableViewCell.swift */; };
 		BC8E0AB42098F92A00339291 /* KullaniciModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8E0AB32098F92A00339291 /* KullaniciModel.swift */; };
+		BCAD8D8B20A0FD3B00E1F156 /* backbuton.png in Resources */ = {isa = PBXBuildFile; fileRef = BCAD8D8A20A0FD3A00E1F156 /* backbuton.png */; };
 		BCB0FF55207066C2002B2D39 /* tarih.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB0FF54207066C2002B2D39 /* tarih.png */; };
 		BCB0FF57207068F0002B2D39 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BCB0FF56207068F0002B2D39 /* back.jpg */; };
 		BCC70FEE20705EB3005D5FB1 /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = BCC70FED20705EB3005D5FB1 /* search.png */; };
@@ -46,6 +47,7 @@
 		BC618AF5206709F800D0C760 /* IlanPaylasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlanPaylasViewController.swift; sourceTree = "<group>"; };
 		BC8BEEEA208E0CB1005CCF31 /* IlanlarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IlanlarTableViewCell.swift; sourceTree = "<group>"; };
 		BC8E0AB32098F92A00339291 /* KullaniciModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciModel.swift; sourceTree = "<group>"; };
+		BCAD8D8A20A0FD3A00E1F156 /* backbuton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backbuton.png; path = ../../../../Downloads/backbuton.png; sourceTree = "<group>"; };
 		BCB0FF54207066C2002B2D39 /* tarih.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tarih.png; path = ../../Downloads/tarih.png; sourceTree = "<group>"; };
 		BCB0FF56207068F0002B2D39 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = back.jpg; path = ../../Downloads/back.jpg; sourceTree = "<group>"; };
 		BCB0FF5820706941002B2D39 /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				BCB0FF592070694D002B2D39 /* voyage.png */,
 				BCB0FF5A20706950002B2D39 /* tarih.png */,
 				BCB0FF5B20706952002B2D39 /* back.jpg */,
+				BCAD8D8A20A0FD3A00E1F156 /* backbuton.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				BCFBF010205EE72500211CC6 /* GoogleService-Info.plist in Resources */,
 				BC251A582099EAAF00FEF42F /* point.png in Resources */,
 				BCF4634C209CABE200C621FA /* search2.png in Resources */,
+				BCAD8D8B20A0FD3B00E1F156 /* backbuton.png in Resources */,
 				BCFBF005205EE71400211CC6 /* Assets.xcassets in Resources */,
 				BCB0FF55207066C2002B2D39 /* tarih.png in Resources */,
 				BCB0FF57207068F0002B2D39 /* back.jpg in Resources */,

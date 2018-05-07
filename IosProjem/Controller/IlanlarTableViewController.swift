@@ -72,7 +72,6 @@ class IlanlarTableViewController: UITableViewController {
                             let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
                             GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                             self.present(GirisHata, animated: true, completion: nil)
-                            self.performSegue(withIdentifier: "goGeri", sender: self)
                         }
                     }
                 /*
