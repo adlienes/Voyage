@@ -52,10 +52,12 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             let add = value?["ad"] as? String ?? ""
             let soyadd = value?["soyad"] as? String ?? ""
             let tell = value?["tel"] as? String ?? ""
+            let araba = value?["arabamodel"] as? String ?? ""
             
             self.Ad.text=add
             self.Soyad.text=soyadd
             self.Tel.text=tell
+            self.ArabaModel.text=araba
             self.YukleniyorImleci.stopAnimating()
         })
     }
@@ -64,7 +66,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         
         if Ad.text != nil && Soyad.text != nil {
             let id = Auth.auth().currentUser?.uid
-            let kulanicimodel=["id":id, "ad": Ad.text!, "soyad": Soyad.text!, "tel": Tel.text!]
+            let kulanicimodel=["id":id, "ad": Ad.text!, "soyad": Soyad.text!, "tel": Tel.text!,"arabamodel":ArabaModel.text!]
             
             ref?.child("KullanıcıBilgileri").child(id!).setValue(kulanicimodel)
             
