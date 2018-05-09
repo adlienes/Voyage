@@ -36,15 +36,9 @@ class IlanlarTableViewController: UITableViewController {
     var gelentarih:String?
     
     
-    
-  
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
-        
         ref = Database.database().reference()
         
     

@@ -24,11 +24,20 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
     var ref2:StorageReference?
 
     
-
+    @IBOutlet var viewConsrait: NSLayoutConstraint!
+    @IBOutlet var blurView: UIVisualEffectView!
+    @IBOutlet var sideView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        blurView.layer.cornerRadius=15
+        sideView.layer.shadowColor=UIColor.black.cgColor
+        sideView.layer.shadowOpacity=1
+        sideView.layer.shadowOffset=CGSize(width: 5, height: 0)
+        
+        viewConsrait.constant = -175
         
         ref = Database.database().reference()
         ref2=Storage.storage().reference()
@@ -40,6 +49,54 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func panPerformed(_ sender: UIPanGestureRecognizer) {
+        
+        if sender.state == .began || sender.state == .changed {
+            
+            let translation = sender.translation(in: self.view).x
+            
+            if translation>0 { // swite sağ
+                
+                if viewConsrait.constant<20 {
+                    
+                    UIView.animate(withDuration: 0.2, animations: {
+                        
+                        self.viewConsrait.constant += translation/10
+                        self.view.layoutIfNeeded()
+                    })
+                }
+            } else { // swipe sol
+                
+                if viewConsrait.constant > -175 {
+                    
+                    UIView.animate(withDuration: 0.2, animations: {
+                        
+                        self.viewConsrait.constant += translation/10
+                        self.view.layoutIfNeeded()
+                    })
+                }
+            }
+            
+        } else if sender.state == .ended {
+            
+            if viewConsrait.constant < -100 {
+                
+                UIView.animate(withDuration: 0.2, animations: {
+                    
+                    self.viewConsrait.constant = -175
+                    self.view.layoutIfNeeded()
+                })
+            }else {
+                UIView.animate(withDuration: 0.2, animations: {
+                    
+                    self.viewConsrait.constant = 0
+                    self.view.layoutIfNeeded()
+                })
+            }
+            
+        }
     }
     
     
@@ -85,8 +142,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         ResimKaydet()
     }
     
-    @IBAction func BtnCikis(_ sender: UIBarButtonItem) {
-        
+    @IBAction func BtnCikis(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Çıkış Yapmak İstiyormusunuz.", message: "Çıkış Yapmak İstiyorsanız Evet, Yapmak İstemiyorsanız Hayır'a Tıklayın", preferredStyle: .alert)
         
@@ -97,8 +153,16 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         alert.addAction(UIAlertAction(title: "Hayır", style: .cancel, handler: nil))
         
         self.present(alert, animated: true,completion: nil)
-        
     }
+    
+    @IBAction func BtnHakkimizda(_ sender: UIButton) {
+        
+        let alert2 = UIAlertController(title: "Hakkmızda", message: "Bu Uygulama Mobil Uygulama Dersi projesi için yapılmıştır", preferredStyle: .alert)
+    
+        alert2.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+        self.present(alert2, animated: true,completion: nil)
+    }
+    
     
     @IBAction func ResimSec(_ sender: Any) {
         let controller=UIImagePickerController()
