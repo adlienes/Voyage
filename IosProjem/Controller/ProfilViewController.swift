@@ -22,7 +22,9 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     var ref:DatabaseReference?
     var ref2:StorageReference?
-
+    
+    var dataa=Data()
+    var yol:URL!
     
     @IBOutlet var viewConsrait: NSLayoutConstraint!
     @IBOutlet var blurView: UIVisualEffectView!
@@ -117,6 +119,7 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             self.ArabaModel.text=araba
             self.YukleniyorImleci.stopAnimating()
         })
+        
     }
     
     func BilgiKaydet() {
@@ -170,23 +173,37 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         controller.sourceType = .photoLibrary
         present(controller, animated: true, completion: nil)
     }
-   
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
+
         let image=info[UIImagePickerControllerOriginalImage] as! UIImage
         profilresim.image=image
-        print("BİLGİ",image)
         
-        
+        dataa = UIImagePNGRepresentation(image)!
+        yol=info[UIImagePickerControllerImageURL] as! URL
         dismiss(animated: true, completion: nil)
     }
     
     func ResimKaydet()  {
-       //ref2?.child("Resimler").putFile()
+        
+        if yol != nil {
+        ref2?.child("KullaniciResim").child((Auth.auth().currentUser?.uid)!).putFile(from: yol, metadata: nil, completion: { (metedata, error) in
+            if metedata != nil {
+                
+                let resim=metedata?.downloadURLs as? String
+                let resimmodel=["resimyolu":resim]
+                self.ref?.child("ResimYolları").child((Auth.auth().currentUser?.uid)!).setValue(resimmodel)
+                print("Kayıt oldu")
+            } else {
+                print("ERROR",error as Any)
+            }
+        })
+      }
+        
     }
     /*
     // MARK: - Navigation
