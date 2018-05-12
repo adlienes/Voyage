@@ -112,11 +112,15 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             let soyadd = value?["soyad"] as? String ?? ""
             let tell = value?["tel"] as? String ?? ""
             let araba = value?["arabamodel"] as? String ?? ""
+            //let resimyolu = value?["resimyolu"] as! String
+            
+            //let data=NSData(contentsOf: NSURL(string: resimyolu)! as URL)
             
             self.Ad.text=add
             self.Soyad.text=soyadd
             self.Tel.text=tell
             self.ArabaModel.text=araba
+            //self.profilresim.image=UIImage(data: data as! Data)
             self.YukleniyorImleci.stopAnimating()
         })
         
@@ -182,7 +186,6 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
 
         let image=info[UIImagePickerControllerOriginalImage] as! UIImage
         profilresim.image=image
-        
         dataa = UIImagePNGRepresentation(image)!
         yol=info[UIImagePickerControllerImageURL] as! URL
         dismiss(animated: true, completion: nil)
@@ -193,9 +196,9 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
         if yol != nil {
         ref2?.child("KullaniciResim").child((Auth.auth().currentUser?.uid)!).putFile(from: yol, metadata: nil, completion: { (metedata, error) in
             if metedata != nil {
-                
-                let resim=metedata?.downloadURLs as? String
-                let resimmodel=["resimyolu":resim]
+    
+                let url=self.yol.absoluteString
+                let resimmodel=["resimyolu":url]
                 self.ref?.child("ResimYolları").child((Auth.auth().currentUser?.uid)!).setValue(resimmodel)
                 print("Kayıt oldu")
             } else {
@@ -203,7 +206,6 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             }
         })
       }
-        
     }
     /*
     // MARK: - Navigation
