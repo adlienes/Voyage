@@ -112,15 +112,28 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
             let soyadd = value?["soyad"] as? String ?? ""
             let tell = value?["tel"] as? String ?? ""
             let araba = value?["arabamodel"] as? String ?? ""
-            //let resimyolu = value?["resimyolu"] as! String
             
-            //let data=NSData(contentsOf: NSURL(string: resimyolu)! as URL)
-            
+           
             self.Ad.text=add
             self.Soyad.text=soyadd
             self.Tel.text=tell
             self.ArabaModel.text=araba
-            //self.profilresim.image=UIImage(data: data as! Data)
+            
+        })
+        ref?.child("ResimYolları").child(gonderenid!).observe(.value, with: { (snapshot) in
+            
+            let value = snapshot.value as? NSDictionary
+            let resimyolu=value?["resimyolu"] as? String ?? ""
+            
+            if resimyolu != "" {
+                let imageUrl = NSURL(string: resimyolu)
+                let dataaa = try! Data(contentsOf: imageUrl! as URL)
+                let resim = UIImage(data:dataaa)
+                self.profilresim.image = resim
+                //self.profilresim.contentMode = UIViewContentMode.scaleAspectFit
+                //self.view.addSubview(self.profilresim)
+                
+            }
             self.YukleniyorImleci.stopAnimating()
         })
         
@@ -186,13 +199,14 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
 
         let image=info[UIImagePickerControllerOriginalImage] as! UIImage
         profilresim.image=image
-        dataa = UIImagePNGRepresentation(image)!
+        dataa = UIImagePNGRepresentation(profilresim.image!)!
         yol=info[UIImagePickerControllerImageURL] as! URL
         dismiss(animated: true, completion: nil)
     }
     
     func ResimKaydet()  {
         
+        /*
         if yol != nil {
         ref2?.child("KullaniciResim").child((Auth.auth().currentUser?.uid)!).putFile(from: yol, metadata: nil, completion: { (metedata, error) in
             if metedata != nil {
@@ -205,7 +219,20 @@ class ProfilViewController: UIViewController,UIImagePickerControllerDelegate, UI
                 print("ERROR",error as Any)
             }
         })
-      }
+      }*/
+        
+        ref2?.child("KullaniciResim").child((Auth.auth().currentUser?.uid)!).putData(dataa, metadata: nil, completion: { (metadata, error) in
+            
+            if error != nil {
+                print(error)
+            }
+            
+            let url=metadata?.downloadURL()?.absoluteString
+            let resimmodel=["resimyolu":url]
+            self.ref?.child("ResimYolları").child((Auth.auth().currentUser?.uid)!).setValue(resimmodel)
+            print("Kayıt oldu")
+        })
+        
     }
     /*
     // MARK: - Navigation

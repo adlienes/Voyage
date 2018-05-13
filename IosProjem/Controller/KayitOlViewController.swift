@@ -62,8 +62,9 @@ class KayitOlViewController: UIViewController {
         
         let id = Auth.auth().currentUser?.uid
         let kulanicimodel=["id":id, "ad": EtKayitAd.text!, "soyad": EtKayitSoyad.text!, "tel": EtKayitTel.text!,"arabamodel":""]
-        
+        let kulanicimodel2=["resimyolu":""]
         ref.child("KullanıcıBilgileri").child(id!).setValue(kulanicimodel)
+        ref.child("ResimYolları").child(id!).setValue(kulanicimodel2)
         
     }
     

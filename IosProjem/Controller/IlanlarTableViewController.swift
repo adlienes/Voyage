@@ -23,13 +23,15 @@ class IlanlarTableViewController: UITableViewController {
     var ad = [String]()
     var soyad = [String]()
     var tel = [String]()
+    var resimyolu = [String]()
+    
     
     var ref:DatabaseReference?
 
     @IBOutlet var YukleniyorImlec: UIActivityIndicatorView!
     @IBOutlet var table: UITableView!
     
-    let meyve=["elma","armut","kiwi","ananas","muz"]
+   
     
     var gelenkonum:String?
     var gelenvaris:String?
@@ -62,33 +64,38 @@ class IlanlarTableViewController: UITableViewController {
                             self.ad.append(myChildValue["ad"] as! String)
                             self.soyad.append(myChildValue["soyad"] as! String)
                             self.tel.append(myChildValue["tel"] as! String)
+                            
+                            
+                            self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
+                                if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
+                                    for snap2 in snapshots2 {
+                                        let myChild2 = snap2
+                                        if let myChildValue2 = myChild2.value as? [String:Any] {
+                                            if myChildValue["gonderenid"] as! String == snap2.key {
+                                                self.resimyolu.append(myChildValue2["resimyolu"] as! String)
+                                                print("aa",self.resimyolu.count)
+                                                print("aa",self.ad.count)
+                                            }
+                                        }
+                                    }
+                                }
+                                self.table.reloadData()
+                            })
+                            
                         }else {
                             let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
                             GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
                             self.present(GirisHata, animated: true, completion: nil)
                         }
                     }
-                /*
-                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                       let post = Post(postKey: key, dictionary: postDict)
-                     self.posts.append(post)
- 
-                    }*/
                 }
             }
            // self.postTableView.reloadData()
             self.table.reloadData()
             self.YukleniyorImlec.stopAnimating()
         })
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -118,6 +125,13 @@ class IlanlarTableViewController: UITableViewController {
         cell.Fiyat.text=fiyat[indexPath.row]
         cell.KoltukSayisi.text=koltuksayisi[indexPath.row]
     
+
+        let resimm=resimyolu[indexPath.row]
+        let imageUrl = NSURL(string: resimm)
+        let dataaa = try! Data(contentsOf: imageUrl! as URL)
+        let resim = UIImage(data:dataaa)
+        cell.profilresim.image=resim
+        
         
         //let gecicihucre:IlanlarTableViewCell=tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre") as! IlanlarTableViewCell
         //gecicihucre.KisiAdi.text=meyve[indexPath.row]
