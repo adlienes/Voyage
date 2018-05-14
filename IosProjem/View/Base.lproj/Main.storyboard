@@ -471,6 +471,7 @@
                     <connections>
                         <outlet property="tablo" destination="6IE-mI-39p" id="CPf-CN-qPX"/>
                         <outlet property="yukleniyorimleci2" destination="Yvy-Zw-Bif" id="g72-le-w00"/>
+                        <segue destination="cGL-oq-zJD" kind="presentation" identifier="goSil" id="YhV-yg-iM9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSh-ai-WGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1243,7 +1244,6 @@
         <image name="voyage.png" width="2072" height="908"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jT3-Rw-uLe"/>
-        <segue reference="lmV-xf-xBM"/>
+        <segue reference="YhV-yg-iM9"/>
     </inferredMetricsTieBreakers>
 </document>

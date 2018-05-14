@@ -67,6 +67,7 @@ class IlanlarimTableViewController: UITableViewController {
             self.yukleniyorimleci2.stopAnimating()
         })
         
+        tablo.allowsMultipleSelectionDuringEditing=true
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +76,34 @@ class IlanlarimTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
 
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Düzenle", handler:{action, indexpath in
+            print("MORE•ACTION",indexPath.row);
+        });
+        moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Sil", handler:{action, indexpath in
+            
+            self.ref2?.child("Gonderiler").child(self.ilanid2[indexPath.row]).removeValue()
+            self.ilanid2.remove(at: indexPath.row)
+            self.tablo.deleteRows(at: [indexPath], with: .automatic)
+            
+            if(self.ilanid2.count==0){
+                self.performSegue(withIdentifier: "goSil", sender: nil)
+            }
+        });
+        
+        return [deleteRowAction, moreRowAction];
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
