@@ -87,6 +87,9 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
        /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
         
         ref.child("Gonderiler").child(key).setValue(gonderimodel)
+        let KayitMesaj=UIAlertController(title: "Başarılı", message: "İlan Paylaşımı Başarılı", preferredStyle: UIAlertControllerStyle.alert)
+        KayitMesaj.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+        self.present(KayitMesaj, animated: true, completion: nil)
     }
     
     func BilgiGetir(){

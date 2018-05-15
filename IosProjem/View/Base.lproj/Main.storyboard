@@ -737,7 +737,7 @@
                                 <navigationItem title="Yolculuklar" id="1id-PW-NTk">
                                     <barButtonItem key="leftBarButtonItem" title="Geri" image="backbuton.png" landscapeImage="backbuton.png" largeContentSizeImage="backbuton.png" id="Bgc-C9-xGJ">
                                         <connections>
-                                            <segue destination="cGL-oq-zJD" kind="show" id="Xl0-Jc-K6Z"/>
+                                            <segue destination="cGL-oq-zJD" kind="show" identifier="goIlanYok" id="Xl0-Jc-K6Z"/>
                                         </connections>
                                     </barButtonItem>
                                 </navigationItem>
@@ -877,7 +877,6 @@
                                     <outlet property="KoltukSayisi" destination="nze-oQ-jcC" id="TE3-IW-pQt"/>
                                     <outlet property="Tarih" destination="nHZ-8T-95d" id="Afo-Cs-ILc"/>
                                     <outlet property="altView" destination="Ofd-oC-fS0" id="o7z-fZ-zdh"/>
-                                    <outlet property="profilresim" destination="COz-IB-QAX" id="7wC-pr-PDb"/>
                                     <outlet property="resim" destination="COz-IB-QAX" id="Cuv-m3-bmd"/>
                                     <segue destination="w10-mf-2mx" kind="showDetail" identifier="goAyrinti" id="dw5-Hd-Ehr"/>
                                 </connections>
@@ -1244,6 +1243,6 @@
         <image name="voyage.png" width="2072" height="908"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YhV-yg-iM9"/>
+        <segue reference="Xl0-Jc-K6Z"/>
     </inferredMetricsTieBreakers>
 </document>

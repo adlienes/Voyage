@@ -23,7 +23,7 @@ class IlanlarTableViewController: UITableViewController {
     var ad = [String]()
     var soyad = [String]()
     var tel = [String]()
-    var resimyolu = [String]()
+    var resimyoluu = [String]()
     
     
     var ref:DatabaseReference?
@@ -53,6 +53,7 @@ class IlanlarTableViewController: UITableViewController {
                     if let myChildValue = myChild.value as? [String:Any] {
                         
                         if myChildValue["konum"] as? String==self.gelenkonum && myChildValue["varis"] as? String==self.gelenvaris && myChildValue["tarih"] as? String==self.gelentarih {
+                            
                             self.bilgi.append(myChildValue["bilgi"] as! String)
                             self.fiyat.append(myChildValue["fiyat"] as! String)
                             self.gonderenid.append(myChildValue["gonderenid"] as! String)
@@ -66,25 +67,26 @@ class IlanlarTableViewController: UITableViewController {
                             self.tel.append(myChildValue["tel"] as! String)
                             
                             
-                            self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
+                           
+                             self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
                                 if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
                                     for snap2 in snapshots2 {
                                         let myChild2 = snap2
                                         if let myChildValue2 = myChild2.value as? [String:Any] {
                                             if myChildValue["gonderenid"] as! String == snap2.key {
-                                                self.resimyolu.append(myChildValue2["resimyolu"] as! String)
-                                                print("aa",self.resimyolu.count)
-                                                print("aa",self.ad.count)
+                                                self.resimyoluu.append(myChildValue2["resimyolu"] as! String)
+                                                print("girdi")
                                             }
                                         }
                                     }
                                 }
                                 self.table.reloadData()
                             })
-                            
                         }else {
                             let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
-                            GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+                            GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: { (action) in
+                                self.performSegue(withIdentifier: "goIlanYok", sender: self)
+                            }))
                             self.present(GirisHata, animated: true, completion: nil)
                         }
                     }
@@ -125,13 +127,12 @@ class IlanlarTableViewController: UITableViewController {
         cell.Fiyat.text=fiyat[indexPath.row]
         cell.KoltukSayisi.text=koltuksayisi[indexPath.row]
     
-
-        let resimm=resimyolu[indexPath.row]
+       /* let resimm=resimyolu[indexPath.row]
         let imageUrl = NSURL(string: resimm)
         let dataaa = try! Data(contentsOf: imageUrl! as URL)
         let resim = UIImage(data:dataaa)
-        cell.profilresim.image=resim
-        
+        cell.resim.image=resim
+        */
         
         //let gecicihucre:IlanlarTableViewCell=tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre") as! IlanlarTableViewCell
         //gecicihucre.KisiAdi.text=meyve[indexPath.row]

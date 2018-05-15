@@ -24,6 +24,7 @@ class IlanlarimTableViewController: UITableViewController {
     var ad2 = [String]()
     var soyad2 = [String]()
     var tel2 = [String]()
+    var resimyolu2 = [String]()
     
     var ref2:DatabaseReference?
 
@@ -59,6 +60,20 @@ class IlanlarimTableViewController: UITableViewController {
                             self.ad2.append(myChildValue["ad"] as! String)
                             self.soyad2.append(myChildValue["soyad"] as! String)
                             self.tel2.append(myChildValue["tel"] as! String)
+                            
+                            
+                            self.ref2?.child("ResimYolları").child(id!).observeSingleEvent(of: .value, with: { (snapshot2) in
+                                if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
+                                    for snap2 in snapshots2 {
+                                        let myChild2 = snap2
+                                        if let myChildValue2 = myChild2.value as? [String:Any] {
+                                        
+                                                self.resimyolu2.append(myChildValue2["resimyolu"] as! String)
+                                        }
+                                    }
+                                }
+                                self.tablo.reloadData()
+                            })
                         }
                     }
                 }
@@ -66,6 +81,8 @@ class IlanlarimTableViewController: UITableViewController {
             self.tablo.reloadData()
             self.yukleniyorimleci2.stopAnimating()
         })
+        
+       
         
         tablo.allowsMultipleSelectionDuringEditing=true
     }

@@ -11,7 +11,6 @@ import UIKit
 class IlanlarTableViewCell: UITableViewCell {
     
     @IBOutlet var altView: UIView!
-    @IBOutlet var profilresim: UIImageView!
     @IBOutlet var resim: UIImageView!
     @IBOutlet var KisiAdi: UILabel!
     @IBOutlet var Tarih: UILabel!
