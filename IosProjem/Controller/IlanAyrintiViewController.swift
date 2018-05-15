@@ -56,6 +56,13 @@ class IlanAyrintiViewController: UIViewController {
     @IBAction func BtnGeri(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func BtnPaylas(_ sender: UIBarButtonItem) {
+        
+        let paylasmesaj=gelenAd! + " " + gelenSoyad! + " " + gelenTarih! + "'inde " + gelenKonum! + "'dan " + gelenVaris! + "'a Gidiyor."
+        let viewcontreller=UIActivityViewController(activityItems: [paylasmesaj], applicationActivities: nil)
+        present(viewcontreller, animated: true, completion: nil)
+    }
+    
     
 
     /*

@@ -82,14 +82,24 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         let key = ref.childByAutoId().key
         let gonderenid = Auth.auth().currentUser?.uid
-        let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!,"ad": ad!,"soyad": soyad!,"tel": tel!]
         
-       /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
+        if KonumSearch.text != "" && VarisSearch.text != "" && SearchTarih.text != "" && EtUcret.text != "" && EtBos.text != "" {
+            
+            let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!,"ad": ad!,"soyad": soyad!,"tel": tel!]
+            
+            /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
+            
+            ref.child("Gonderiler").child(key).setValue(gonderimodel)
+            let KayitMesaj=UIAlertController(title: "Başarılı", message: "İlan Paylaşımı Başarılı", preferredStyle: UIAlertControllerStyle.alert)
+            KayitMesaj.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+            self.present(KayitMesaj, animated: true, completion: nil)
+        } else {
+            let KayitBos=UIAlertController(title: "Hata", message: "Lütfen Tüm Verileri Giriniz", preferredStyle: UIAlertControllerStyle.alert)
+            KayitBos.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+            self.present(KayitBos, animated: true, completion: nil)
+        }
         
-        ref.child("Gonderiler").child(key).setValue(gonderimodel)
-        let KayitMesaj=UIAlertController(title: "Başarılı", message: "İlan Paylaşımı Başarılı", preferredStyle: UIAlertControllerStyle.alert)
-        KayitMesaj.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
-        self.present(KayitMesaj, animated: true, completion: nil)
+        
     }
     
     func BilgiGetir(){

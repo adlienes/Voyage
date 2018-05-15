@@ -1054,6 +1054,11 @@
                                                 <action selector="BtnGeri:" destination="w10-mf-2mx" id="2Ee-za-lpK"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="p2H-eY-R4c">
+                                            <connections>
+                                                <action selector="BtnPaylas:" destination="w10-mf-2mx" id="NtK-47-pcS"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
