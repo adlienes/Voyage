@@ -104,6 +104,8 @@ class IlanlarimTableViewController: UITableViewController {
         
         let moreRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Düzenle", handler:{action, indexpath in
             print("MORE•ACTION",indexPath.row);
+            self.performSegue(withIdentifier: "goIlanlarimDuzenle", sender: nil)
+            
         });
         moreRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         
@@ -145,6 +147,24 @@ class IlanlarimTableViewController: UITableViewController {
         return cell
     }
     
+    /*
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier=="goIlanlarimDuzenle" {
+            
+            let geciciviewcontrller=segue.destination as! IlanDuzenleViewController
+            
+            if let geciciindexpath=self.tablo.indexPathForSelectedRow {
+                geciciviewcontrller.gelenKonum2=konum2[geciciindexpath.row]
+                geciciviewcontrller.gelenVaris2=varis2[geciciindexpath.row]
+                geciciviewcontrller.gelenTarih2=tarih2[geciciindexpath.row]
+                geciciviewcontrller.gelenFiyat2=fiyat2[geciciindexpath.row]
+                geciciviewcontrller.gelenKoltuk2=koltuksayisi2[geciciindexpath.row]
+                geciciviewcontrller.gelenBilgi2=bilgi2[geciciindexpath.row]
+            }
+        }
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.
