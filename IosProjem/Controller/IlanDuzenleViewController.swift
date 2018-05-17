@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class IlanDuzenleViewController: UIViewController {
 
@@ -24,6 +26,15 @@ class IlanDuzenleViewController: UIViewController {
     public static var gelenKoltuk2:String?
     public static var gelenFiyat2:String?
     public static var gelenBilgi2:String?
+    public static var gelenIlanid2:String?
+    
+    var ad:String?
+    var soyad:String?
+    var tel:String?
+    var arabamodel:String?
+    
+    
+    var ref:DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +47,9 @@ class IlanDuzenleViewController: UIViewController {
         Bilgi.text=IlanDuzenleViewController.gelenBilgi2
         
         // Do any additional setup after loading the view.
+        
+        ref=Database.database().reference()
+        BilgiGetir()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +58,46 @@ class IlanDuzenleViewController: UIViewController {
     }
     
     @IBAction func BtnGuncelle(_ sender: UIButton) {
+        BilgiGuncelle()
+    }
+    
+    func BilgiGetir()  {
+        
+        let gonderenid = Auth.auth().currentUser?.uid
+        ref?.child("KullanıcıBilgileri").child(gonderenid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let add = value?["ad"] as? String ?? ""
+            let soyadd = value?["soyad"] as? String ?? ""
+            let tell = value?["tel"] as? String ?? ""
+            let araba = value?["arabamodel"] as? String ?? ""
+            
+            
+            self.ad=add
+            self.soyad=soyadd
+            self.tel=tell
+            self.arabamodel=araba
+            
+        })
+    }
+    
+    func BilgiGuncelle()  {
+        
+        let gonderenid = Auth.auth().currentUser?.uid
+        
+        if Konum.text != "" && Varis.text != "" && Tarih.text != "" && Ucret.text != "" && BosKoltuk.text != "" {
+            
+            let gonderimodel=["ilanid":IlanDuzenleViewController.gelenIlanid2,"gonderenid": gonderenid,"konum": Konum.text! ,"varis": Varis.text!,"tarih":Tarih.text!,"fiyat": Ucret.text!,"koltuksayisi": BosKoltuk.text!,"bilgi": Bilgi.text!,"ad": ad,"soyad": soyad,"tel": tel]
+            
+       ref?.child("Gonderiler").child(IlanDuzenleViewController.gelenIlanid2!).setValue(gonderimodel)
+            let KayitMesaj2=UIAlertController(title: "Başarılı", message: "İlan Güncelleme Başarılı", preferredStyle: UIAlertControllerStyle.alert)
+            KayitMesaj2.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+            self.present(KayitMesaj2, animated: true, completion: nil)
+        } else {
+            let KayitBos=UIAlertController(title: "Hata", message: "Lütfen Tüm Verileri Giriniz", preferredStyle: UIAlertControllerStyle.alert)
+            KayitBos.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: nil))
+            self.present(KayitBos, animated: true, completion: nil)
+        }
+        
     }
     
     /*

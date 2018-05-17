@@ -1399,7 +1399,6 @@
                                 <state key="normal" title="Güncelle"/>
                                 <connections>
                                     <action selector="BtnGuncelle:" destination="Sts-yd-bnq" eventType="touchUpInside" id="QjL-fy-ajb"/>
-                                    <action selector="BtnPaylas:" destination="Sts-yd-bnq" eventType="touchUpInside" id="g4n-cu-u9l"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1419,7 +1418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhc-c3-lwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5017" y="1103"/>
+            <point key="canvasLocation" x="4881" y="1148"/>
         </scene>
     </scenes>
     <resources>
@@ -1435,6 +1434,7 @@
         <image name="voyage.png" width="2072" height="908"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uG0-Dp-agp"/>
         <segue reference="lmV-xf-xBM"/>
         <segue reference="ZNz-oO-QZx"/>
     </inferredMetricsTieBreakers>

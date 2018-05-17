@@ -43,7 +43,17 @@ class IlanlarTableViewController: UITableViewController {
 
         ref = Database.database().reference()
         
+        IlanGetir()
+       
+    }
     
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func IlanGetir()  {
         YukleniyorImlec.startAnimating()
         
         ref?.child("Gonderiler").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -67,8 +77,7 @@ class IlanlarTableViewController: UITableViewController {
                             self.tel.append(myChildValue["tel"] as! String)
                             
                             
-                           
-                             self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
+                            self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
                                 if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
                                     for snap2 in snapshots2 {
                                         let myChild2 = snap2
@@ -92,16 +101,10 @@ class IlanlarTableViewController: UITableViewController {
                     }
                 }
             }
-           // self.postTableView.reloadData()
+            // self.postTableView.reloadData()
             self.table.reloadData()
             self.YukleniyorImlec.stopAnimating()
         })
-    }
-    
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -127,8 +130,8 @@ class IlanlarTableViewController: UITableViewController {
         cell.Fiyat.text=fiyat[indexPath.row]
         cell.KoltukSayisi.text=koltuksayisi[indexPath.row]
     
-       /* let resimm=resimyolu[indexPath.row]
-        let imageUrl = NSURL(string: resimm)
+        //let resimm=resimyoluu[indexPath.row]
+        /*let imageUrl = NSURL(string: resimm)
         let dataaa = try! Data(contentsOf: imageUrl! as URL)
         let resim = UIImage(data:dataaa)
         cell.resim.image=resim

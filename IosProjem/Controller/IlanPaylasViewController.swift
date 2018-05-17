@@ -43,6 +43,7 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
     var kontrol=false
     
     let datepicket=UIDatePicker()
+    let pickerView = UIPickerView()
     
     var ref:DatabaseReference!
     
@@ -52,13 +53,9 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         ref=Database.database().reference()
         
-        let pickerView = UIPickerView()
+        createPicker()
         createDatePicket()
         
-        pickerView.delegate = self
-        
-        KonumSearch.inputView = pickerView
-        VarisSearch.inputView=pickerView
         
         ViewUcret.layer.borderWidth=2
         ViewUcret.layer.borderColor = UIColor.lightGray.cgColor
@@ -116,6 +113,29 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         })
     }
     
+    
+    func createPicker() {
+        
+        let toolbar=UIToolbar()
+        toolbar.sizeToFit()
+        
+        let done=UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed2) )
+        toolbar.setItems([done], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        pickerView.delegate = self
+        pickerView.dataSource=self
+        
+        KonumSearch.inputAccessoryView=toolbar
+        KonumSearch.inputView = pickerView
+        
+        VarisSearch.inputAccessoryView=toolbar
+        VarisSearch.inputView=pickerView
+        
+        
+        
+    }
+    
     func createDatePicket(){
         
         //toolbar
@@ -130,6 +150,14 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         datepicket.datePickerMode = .date
     
+    }
+    
+    @objc func donePressed2(){
+        
+        print("done pres")
+        KonumSearch.resignFirstResponder()
+        VarisSearch.resignFirstResponder()
+        kontrol=true
     }
     
     @objc func donePressed(){
@@ -165,14 +193,10 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         if kontrol==false {
             KonumSearch.text = pickOption[row]
-            KonumSearch.resignFirstResponder()
             LabelKonum.text = pickOption[row]
-            kontrol=true
         }else{
             VarisSearch.text=pickOption[row]
-            VarisSearch.resignFirstResponder()
             LabelVaris.text = pickOption[row]
-            kontrol=false
         }
     }
 }
