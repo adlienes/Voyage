@@ -17,12 +17,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if Auth.auth().currentUser != nil {
-             self.performSegue(withIdentifier: "goAna", sender: self)
-        } else {
-            print("Kullıanıcı yok")
-        }
-        
         
     }
 

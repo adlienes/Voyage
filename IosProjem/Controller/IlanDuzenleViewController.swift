@@ -10,6 +10,7 @@ import UIKit
 
 class IlanDuzenleViewController: UIViewController {
 
+    
     @IBOutlet var Konum: UITextField!
     @IBOutlet var Varis: UITextField!
     @IBOutlet var Tarih: UITextField!
@@ -17,22 +18,22 @@ class IlanDuzenleViewController: UIViewController {
     @IBOutlet var BosKoltuk: UITextField!
     @IBOutlet var Bilgi: UITextView!
     
-    var gelenTarih2:String?
-    var gelenKonum2:String?
-    var gelenVaris2:String?
-    var gelenKoltuk2:String?
-    var gelenFiyat2:String?
-    var gelenBilgi2:String?
+    public static var gelenTarih2:String?
+    public static var gelenKonum2:String?
+    public static var gelenVaris2:String?
+    public static var gelenKoltuk2:String?
+    public static var gelenFiyat2:String?
+    public static var gelenBilgi2:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Konum.text=gelenKonum2
-        Varis.text=gelenVaris2
-        Tarih.text=gelenTarih2
-        Ucret.text=gelenFiyat2
-        BosKoltuk.text=gelenKoltuk2
-        Bilgi.text=gelenBilgi2
+        Konum.text=IlanDuzenleViewController.gelenKonum2
+        Varis.text=IlanDuzenleViewController.gelenVaris2
+        Tarih.text=IlanDuzenleViewController.gelenTarih2
+        Ucret.text=IlanDuzenleViewController.gelenFiyat2
+        BosKoltuk.text=IlanDuzenleViewController.gelenKoltuk2
+        Bilgi.text=IlanDuzenleViewController.gelenBilgi2
         
         // Do any additional setup after loading the view.
     }

@@ -21,6 +21,7 @@ class KayitOlViewController: UIViewController {
     @IBOutlet var EtKayitSifre: UITextField!
     
     var ref:DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,8 @@ class KayitOlViewController: UIViewController {
     }
     
     @IBAction func BtnKayitOl(_ sender: UIButton) {
-        if EtKayitEmail.text != "" && EtKayitSifre.text != "" {
+        
+        if EtKayitEmail.text != "" && EtKayitSifre.text != "" && EtKayitAd.text != "" && EtKayitSoyad.text != "" && EtKayitTel.text != "" {
             Auth.auth().createUser(withEmail: EtKayitEmail.text!, password: EtKayitSifre.text!) { (user, error) in
                 ///asdsadasdasd
                 if user != nil {

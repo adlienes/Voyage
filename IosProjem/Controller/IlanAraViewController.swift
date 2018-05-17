@@ -27,6 +27,7 @@ class IlanAraViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
     var kontrol=false
     
     let datepicket=UIDatePicker()
+    let pickerView = UIPickerView()
     
     
     
@@ -44,12 +45,10 @@ class IlanAraViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let pickerView = UIPickerView()
-        createDatePicket()
-        pickerView.delegate = self
         
-        LabelKonum.inputView = pickerView
-        LabelVaris.inputView=pickerView
+        createPicker()
+        createDatePicket()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -72,6 +71,28 @@ class IlanAraViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
         }
     }
     
+    func createPicker() {
+        
+        let toolbar=UIToolbar()
+        toolbar.sizeToFit()
+        
+        let done=UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed2) )
+        toolbar.setItems([done], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        pickerView.delegate = self
+        pickerView.dataSource=self
+        
+        LabelKonum.inputAccessoryView=toolbar
+        LabelKonum.inputView = pickerView
+        
+        LabelVaris.inputAccessoryView=toolbar
+        LabelVaris.inputView=pickerView
+        
+        
+        
+    }
+    
     func createDatePicket(){
         
         //toolbar
@@ -87,6 +108,15 @@ class IlanAraViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
         datepicket.datePickerMode = .date
         
     }
+    
+    @objc func donePressed2(){
+        
+        print("done pres")
+        LabelKonum.resignFirstResponder()
+        LabelVaris.resignFirstResponder()
+        kontrol=true
+    }
+    
     
     @objc func donePressed(){
         
@@ -115,17 +145,11 @@ class IlanAraViewController: UIViewController,UIPickerViewDataSource, UIPickerVi
         
         if kontrol==false {
             LabelKonum.text = pickOption[row]
-            LabelKonum.resignFirstResponder()
-            LabelKonum.text = pickOption[row]
-            kontrol=true
         }else{
             LabelVaris.text=pickOption[row]
-            LabelVaris.resignFirstResponder()
-            LabelVaris.text = pickOption[row]
-            kontrol=false
         }
     }
-    
+
     
     /*
     // MARK: - Navigation

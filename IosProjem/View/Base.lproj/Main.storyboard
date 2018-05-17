@@ -472,7 +472,7 @@
                         <outlet property="tablo" destination="6IE-mI-39p" id="CPf-CN-qPX"/>
                         <outlet property="yukleniyorimleci2" destination="Yvy-Zw-Bif" id="g72-le-w00"/>
                         <segue destination="cGL-oq-zJD" kind="presentation" identifier="goSil" id="YhV-yg-iM9"/>
-                        <segue destination="Sts-yd-bnq" kind="presentation" identifier="goIlanlarimDuzenle" id="BRv-4F-3QE"/>
+                        <segue destination="Sts-yd-bnq" kind="show" identifier="goIlanlarimDuzenle" id="uG0-Dp-agp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LSh-ai-WGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1385,7 +1385,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="İlan Düzenle" id="Ky3-v8-vrl">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbuton.png" landscapeImage="backbuton.png" largeContentSizeImage="backbuton.png" id="CH8-fU-iyA"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbuton.png" landscapeImage="backbuton.png" largeContentSizeImage="backbuton.png" id="CH8-fU-iyA">
+                                            <connections>
+                                                <segue destination="cdc-sK-QkH" kind="show" id="ZNz-oO-QZx"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1405,22 +1409,17 @@
                     <tabBarItem key="tabBarItem" title="Yolculuk Paylaş" image="share.png" selectedImage="share.png" id="pX9-km-hcP"/>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="Bilgi" destination="Xdk-aU-6tx" id="faS-C0-SQo"/>
-                        <outlet property="BosKoltuk" destination="HZl-Dq-6oD" id="kti-xI-2t7"/>
-                        <outlet property="Konum" destination="zgp-Km-32R" id="BwC-9L-Rrf"/>
-                        <outlet property="LabelKonum" destination="dgY-4S-MfJ" id="2IM-wE-sHV"/>
-                        <outlet property="LabelVaris" destination="tGb-CH-fk3" id="Xv7-n8-uNu"/>
-                        <outlet property="Tarih" destination="QZi-NM-lKl" id="gBu-wg-yeq"/>
-                        <outlet property="Ucret" destination="lfs-tw-CVv" id="m33-at-tBx"/>
-                        <outlet property="Varis" destination="3fY-zc-Udf" id="i3T-rQ-f3a"/>
-                        <outlet property="ViewBilgi" destination="1gK-S7-cTY" id="HYy-H0-cZ1"/>
-                        <outlet property="ViewKoltuk" destination="mOG-FO-Ewv" id="QcX-wz-H9R"/>
-                        <outlet property="ViewUcret" destination="jXW-fp-070" id="7Y7-db-Sr2"/>
+                        <outlet property="Bilgi" destination="Xdk-aU-6tx" id="Fa7-er-QHi"/>
+                        <outlet property="BosKoltuk" destination="HZl-Dq-6oD" id="fMk-UX-0uW"/>
+                        <outlet property="Konum" destination="zgp-Km-32R" id="lFh-uK-qK2"/>
+                        <outlet property="Tarih" destination="QZi-NM-lKl" id="g90-Tx-5yQ"/>
+                        <outlet property="Ucret" destination="lfs-tw-CVv" id="ISN-o2-eos"/>
+                        <outlet property="Varis" destination="3fY-zc-Udf" id="uCt-su-6C9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zhc-c3-lwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4880.8000000000002" y="1147.3763118440781"/>
+            <point key="canvasLocation" x="5017" y="1103"/>
         </scene>
     </scenes>
     <resources>
@@ -1436,6 +1435,7 @@
         <image name="voyage.png" width="2072" height="908"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YhV-yg-iM9"/>
+        <segue reference="lmV-xf-xBM"/>
+        <segue reference="ZNz-oO-QZx"/>
     </inferredMetricsTieBreakers>
 </document>
