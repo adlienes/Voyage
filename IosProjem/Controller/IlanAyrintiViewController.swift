@@ -19,6 +19,7 @@ class IlanAyrintiViewController: UIViewController {
     @IBOutlet var LabelKoltuk: UILabel!
     @IBOutlet var LabelFiyat: UILabel!
     @IBOutlet var LabelBİlgi: UILabel!
+    @IBOutlet var ProfilResim: UIImageView!
     
     
     var gelenAd:String?
@@ -30,6 +31,7 @@ class IlanAyrintiViewController: UIViewController {
     var gelenKoltuk:String?
     var gelenFiyat:String?
     var gelenBilgi:String?
+    var gelenResimyolu:String?
     
     
     
@@ -45,6 +47,11 @@ class IlanAyrintiViewController: UIViewController {
         LabelFiyat.text=gelenFiyat
         LabelKoltuk.text=gelenKoltuk
         LabelBİlgi.text=gelenBilgi
+        
+        let imageUrl = NSURL(string: gelenResimyolu!)
+        let dataaa = try! Data(contentsOf: imageUrl! as URL)
+        let resim = UIImage(data:dataaa)
+        self.ProfilResim.image = resim
         
         // Do any additional setup after loading the view.
     }

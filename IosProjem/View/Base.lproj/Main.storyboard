@@ -1078,6 +1078,7 @@
                         <outlet property="LabelTarih" destination="BHG-Jr-Tk1" id="QE8-Xq-dSZ"/>
                         <outlet property="LabelTel" destination="d4V-Gt-4Cb" id="7oU-8W-3He"/>
                         <outlet property="LabelVaris" destination="7Tb-er-x5Y" id="wvP-Iy-JRS"/>
+                        <outlet property="ProfilResim" destination="JRF-9K-EFu" id="ZGC-8N-6oh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVD-KO-ADy" userLabel="First Responder" sceneMemberID="firstResponder"/>

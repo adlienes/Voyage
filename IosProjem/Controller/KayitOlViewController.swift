@@ -20,6 +20,8 @@ class KayitOlViewController: UIViewController {
     @IBOutlet var EtKayitTel: UITextField!
     @IBOutlet var EtKayitSifre: UITextField!
     
+    var resim="https://firebasestorage.googleapis.com/v0/b/iosprojem-79dac.appspot.com/o/KullaniciResim%2Fprofile-2092113_960_720.png?alt=media&token=411a54af-f751-49f2-8d00-b505a788fe79"
+    
     var ref:DatabaseReference!
     
     override func viewDidLoad() {
@@ -64,7 +66,7 @@ class KayitOlViewController: UIViewController {
         
         let id = Auth.auth().currentUser?.uid
         let kulanicimodel=["id":id, "ad": EtKayitAd.text!, "soyad": EtKayitSoyad.text!, "tel": EtKayitTel.text!,"arabamodel":""]
-        let kulanicimodel2=["resimyolu":""]
+        let kulanicimodel2=["resimyolu":resim]
         ref.child("KullanıcıBilgileri").child(id!).setValue(kulanicimodel)
         ref.child("ResimYolları").child(id!).setValue(kulanicimodel2)
         

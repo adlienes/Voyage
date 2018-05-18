@@ -75,22 +75,8 @@ class IlanlarTableViewController: UITableViewController {
                             self.ad.append(myChildValue["ad"] as! String)
                             self.soyad.append(myChildValue["soyad"] as! String)
                             self.tel.append(myChildValue["tel"] as! String)
-                            
-                            
-                            self.ref?.child("ResimYolları").observeSingleEvent(of: .value, with: { (snapshot2) in
-                                if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
-                                    for snap2 in snapshots2 {
-                                        let myChild2 = snap2
-                                        if let myChildValue2 = myChild2.value as? [String:Any] {
-                                            if myChildValue["gonderenid"] as! String == snap2.key {
-                                                self.resimyoluu.append(myChildValue2["resimyolu"] as! String)
-                                                print("girdi")
-                                            }
-                                        }
-                                    }
-                                }
-                                self.table.reloadData()
-                            })
+                            self.resimyoluu.append(myChildValue["resimyolu"] as! String)
+     
                         }else {
                             let GirisHata=UIAlertController(title: "Hata", message: "Böyle Bir Kayıt Bulunamadı", preferredStyle: UIAlertControllerStyle.alert)
                             GirisHata.addAction(UIAlertAction(title: "Tamam", style: UIAlertActionStyle.default, handler: { (action) in
@@ -129,13 +115,13 @@ class IlanlarTableViewController: UITableViewController {
         cell.Bnoktasi.text=varis[indexPath.row]
         cell.Fiyat.text=fiyat[indexPath.row]
         cell.KoltukSayisi.text=koltuksayisi[indexPath.row]
-    
-        //let resimm=resimyoluu[indexPath.row]
-        /*let imageUrl = NSURL(string: resimm)
+        
+        let resimm=resimyoluu[indexPath.row]
+        let imageUrl = NSURL(string: resimm)
         let dataaa = try! Data(contentsOf: imageUrl! as URL)
         let resim = UIImage(data:dataaa)
         cell.resim.image=resim
-        */
+        
         
         //let gecicihucre:IlanlarTableViewCell=tableView.dequeueReusableCell(withIdentifier: "IlanlarHucre") as! IlanlarTableViewCell
         //gecicihucre.KisiAdi.text=meyve[indexPath.row]
@@ -163,6 +149,7 @@ class IlanlarTableViewController: UITableViewController {
                 geciciviewcontrller.gelenAd=ad[geciciindexpath.row]
                 geciciviewcontrller.gelenSoyad=soyad[geciciindexpath.row]
                 geciciviewcontrller.gelenTel=tel[geciciindexpath.row]
+                geciciviewcontrller.gelenResimyolu=resimyoluu[geciciindexpath.row]
             }
         }
     }

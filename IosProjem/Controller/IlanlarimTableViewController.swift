@@ -60,20 +60,8 @@ class IlanlarimTableViewController: UITableViewController {
                             self.ad2.append(myChildValue["ad"] as! String)
                             self.soyad2.append(myChildValue["soyad"] as! String)
                             self.tel2.append(myChildValue["tel"] as! String)
+                            self.resimyolu2.append(myChildValue["resimyolu"] as! String)
                             
-                            
-                            self.ref2?.child("ResimYolları").child(id!).observeSingleEvent(of: .value, with: { (snapshot2) in
-                                if let snapshots2 = snapshot2.children.allObjects as? [DataSnapshot] {
-                                    for snap2 in snapshots2 {
-                                        let myChild2 = snap2
-                                        if let myChildValue2 = myChild2.value as? [String:Any] {
-                                        
-                                                self.resimyolu2.append(myChildValue2["resimyolu"] as! String)
-                                        }
-                                    }
-                                }
-                                self.tablo.reloadData()
-                            })
                         }
                     }
                 }
@@ -155,6 +143,13 @@ class IlanlarimTableViewController: UITableViewController {
         cell.Bnoktasi2.text=varis2[indexPath.row]
         cell.Fiyat2.text=fiyat2[indexPath.row]
         cell.KoltukSayisi2.text=koltuksayisi2[indexPath.row]
+        
+        
+        let resimm=resimyolu2[indexPath.row]
+        let imageUrl = NSURL(string: resimm)
+        let dataaa = try! Data(contentsOf: imageUrl! as URL)
+        let resim = UIImage(data:dataaa)
+        cell.profilresim2.image=resim
 
         return cell
     }

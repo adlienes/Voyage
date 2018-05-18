@@ -29,6 +29,7 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
     var ad:String!
     var soyad:String!
     var tel:String!
+    var resimyolu:String!
     
     
     var pickOption = ["Adana", "Adıyaman", "Afyon", "Ağrı", "Amasya", "Ankara", "Antalya", "Artvin",
@@ -82,7 +83,7 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
         
         if KonumSearch.text != "" && VarisSearch.text != "" && SearchTarih.text != "" && EtUcret.text != "" && EtBos.text != "" {
             
-            let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!,"ad": ad!,"soyad": soyad!,"tel": tel!]
+            let gonderimodel=["ilanid":key,"gonderenid": gonderenid,"konum": KonumSearch.text! ,"varis": VarisSearch.text!,"tarih":SearchTarih.text!,"fiyat": EtUcret.text!,"koltuksayisi": EtBos.text!,"bilgi": EtBilgi.text!,"ad": ad!,"soyad": soyad!,"tel": tel!,"resimyolu":resimyolu!]
             
             /*let gonderi=GonderiModel(ilanid: key, gonderenid: "ad", konum: KonumSearch.text!, varis: VarisSearch.text!, tarih: SearchTarih.text!, fiyat: EtUcret.text!, koltuksayisi: EtBos.text!, bilgi: EtBilgi.text!) */
             
@@ -110,6 +111,13 @@ class IlanPaylasViewController: UIViewController,UIPickerViewDataSource, UIPicke
             self.ad=add
             self.soyad=soyadd
             self.tel=tell
+        })
+        
+        ref?.child("ResimYolları").child(gonderenid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let resimyoluu = value?["resimyolu"] as? String ?? ""
+        
+            self.resimyolu=resimyoluu
         })
     }
     
